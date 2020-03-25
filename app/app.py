@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 
 @app.route("/respond/<string>", methods=['GET'])
-def analyse_sentiment(string: str):
+def simple_response(string: str):
     return jsonify(
         response=string
     )
