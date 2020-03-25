@@ -135,3 +135,4 @@ img
 # pycharm
 .idea
 .vscode
+.pycache
