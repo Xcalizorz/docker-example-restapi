@@ -1,2 +1,12 @@
 **/%appdata%
 **/venv
+**/__pycache__
+
+.idea
+.github
+.devcontainer
+.vscode
+.gitignore
+LICENSE
+*.md
+img
