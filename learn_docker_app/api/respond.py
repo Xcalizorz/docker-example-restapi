@@ -4,13 +4,14 @@ from flask import request
 from flask_restx import fields, Namespace, Resource
 
 respond_namespace = Namespace(
-    'respond', 
+    'respond',
     description='Provides operations that generate a simple response.'
 )
 
 copy_cat_model = respond_namespace.model('Respond', {
-        'response': fields.String(description='The string provided.')
+    'response': fields.String(description='The string provided.')
 })
+
 
 @respond_namespace.route('/<string>')
 class Copycat(Resource):
@@ -19,7 +20,6 @@ class Copycat(Resource):
         return {
             'response': string,
         }
-
 
 
 platform_model = respond_namespace.model('Host', {
@@ -37,6 +37,7 @@ hostname_model = respond_namespace.model('Hostname', {
     'host': fields.Nested(platform_model, description='Data concerning the API server.'),
     'client': fields.Nested(platform_model, description='Data concerning the requesting client.'),
 })
+
 
 @respond_namespace.route('/hostname')
 class Hostname(Resource):

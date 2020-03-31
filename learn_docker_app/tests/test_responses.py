@@ -1,10 +1,9 @@
-import pytest
 from dataclasses import dataclass
 from types import SimpleNamespace
 
+import pytest
+
 from learn_docker_app.app import create_app
-from learn_docker_app.api.respond import platform
-from learn_docker_app.api.respond import request
 
 
 @pytest.fixture
@@ -17,7 +16,8 @@ def client():
 
 
 class TestResponse:
-    def copy_cat_response(self, test_string: str):
+    @staticmethod
+    def copy_cat_response(test_string: str):
         return f"/respond/{test_string}"
 
     @pytest.mark.parametrize("test_string", [
@@ -58,10 +58,11 @@ class TestResponse:
 
 class MockPlatform:
     """Will override the builtin platform module"""
+
     @staticmethod
     def node():
         return 'TEST-HOSTNAME'
-    
+
     @staticmethod
     def system():
         return 'TEST-SYSTEM'

@@ -1,10 +1,9 @@
 from flask import Blueprint, Flask
-from flask_restx import Api, Resource, fields
 
 from learn_docker_app.api import api
 
 
-def create_app(test_config=None) -> Flask:
+def create_app() -> Flask:
     """
     Creates the app and inserts the given configuration into it.
 
@@ -19,6 +18,7 @@ def create_app(test_config=None) -> Flask:
     app.register_blueprint(api_bp)
     api.init_app(app)
     return app
+
 
 if __name__ == '__main__':
     create_app().run(host='0.0.0.0', port=5000, debug=True)
