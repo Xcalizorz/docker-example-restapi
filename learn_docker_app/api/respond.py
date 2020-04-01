@@ -13,7 +13,7 @@ copy_cat_model = respond_namespace.model('Respond', {
 })
 
 
-@respond_namespace.route('/<string>')
+@respond_namespace.route('<string>')
 class Copycat(Resource):
     @respond_namespace.marshal_with(copy_cat_model)
     def get(self, string: str):
@@ -39,7 +39,7 @@ hostname_model = respond_namespace.model('Hostname', {
 })
 
 
-@respond_namespace.route('/hostname')
+@respond_namespace.route('hostname')
 class Hostname(Resource):
     @respond_namespace.marshal_with(hostname_model)
     def get(self):
